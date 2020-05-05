@@ -11,8 +11,12 @@ vector<CIntN*> F (string File) {
     factories_["Vert"]= &Vert;
 
     ifstream in(File.c_str());
-    if (!in) cout << "file error" << endl;
     vector<CIntN*> arr;
+    if (!in) {
+        cout << "file error" << endl;
+        return arr;
+    }
+    
     string I="", fname="", l="", num="";
     arr.reserve(256);
     while (!in.eof()) {
